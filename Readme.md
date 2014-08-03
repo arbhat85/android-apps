@@ -8,13 +8,13 @@ thing I have to get used to.
 I am currently working on a couple of apps that are more involved and will
 upload them soon.
 
-App descriptions:
+App Descriptions:
 -----------------
 
-1.  **Audio **Plays one audio file each from internal memory (/res) and the SD
+1.  **Audio** Plays one audio file each from internal memory (/res) and the SD
     card
 
-2.  **BindService **Implements a bound service to add 2 numbers
+2.  **BindService** Implements a bound service to add 2 numbers
 
 3.  **HelloLifeCycle**  Prints log statements to LogCat to show the various
     transitions between the states of an Activity
@@ -34,7 +34,7 @@ App descriptions:
 8.  **SI** **Calculator** Implements a simple interest calculator (with a
     SeekBar control)
 
-9.  **SimpleService **Implements a normal service that calculates the average of
+9.  **SimpleService** Implements a normal service that calculates the average of
     user-entered numbers
 
 10. **Traffic** **Lights** Implements a traffic light. The color appropriately
@@ -43,7 +43,9 @@ App descriptions:
 11. **TwoActivities** Project to understand the interactions when there are 2
     activities in a project
 
-12. **Video** Plays a video from the SD card on the screen
+
+
+1.  **Video** Plays a video from the SD card on the screen
 
 Please note that some of the projects were provided as shells in some tutorials
 that I used. But I added all of the functionality. This explains why you might
