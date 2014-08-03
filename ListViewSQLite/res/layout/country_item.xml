@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<TextView
+	    android:id="@+id/textName"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	<LinearLayout
+	    android:id="@+id/subItem"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content">
+	    
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/popLabel" />
+	    
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/popLabel" />
+	    
+	    <TextView
+	        android:id="@+id/textPop"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
+	    
+	    <TextView
+	        android:layout_width="5dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/space" />
+	    
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/areaLabel" />
+	    
+	    <TextView
+	        android:id="@+id/textArea"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textAppearance="?android:attr/textAppearanceSmall" />
+	    
+	    <TextView
+	        android:layout_width="5dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/space" />
+	    
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/areaDescriptor" />
+	</LinearLayout>
+</LinearLayout>
