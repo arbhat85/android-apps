@@ -396,6 +396,7 @@ int string instructions_title 0x7f0a001b
 int string original_string 0x7f0a0010
 int string play_again 0x7f0a0018
 int string play_string 0x7f0a0011
+int string return_text 0x7f0a001f
 int string see_again_string 0x7f0a0014
 int string title_activity_play 0x7f0a0013
 int style AppBaseTheme 0x7f0b008b

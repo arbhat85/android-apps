@@ -1488,6 +1488,7 @@ containing a value of this type.
         public static final int original_string=0x7f0a0010;
         public static final int play_again=0x7f0a0018;
         public static final int play_string=0x7f0a0011;
+        public static final int return_text=0x7f0a001f;
         public static final int see_again_string=0x7f0a0014;
         public static final int title_activity_play=0x7f0a0013;
     }

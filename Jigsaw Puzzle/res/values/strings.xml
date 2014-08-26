@@ -19,5 +19,6 @@
     <string name="instructions_message">"Arrange the pieces to recreate the original image\n\nContols:\n - Tap a piece to rotate it clockwise by 90 degrees\n - Long press and move a piece to drag it. Dragging a piece on another piece will swap the 2 pieces\n\nPieces that are incorrectly placed are indicated by a yellow border\n\nTap on 'See Original Image' to view the full image again\n\nThat's it! Good luck!\n\n(To close, tap anywhere oustide this dialog)"</string>
     <string name="error_title">Oops\!</string>
     <string name="error_message">"The app encountered an error and will not work as expected.\n\nPlease report this along with the error code in the next line.\nError code: %d\n\n(To close, tap anywhere oustide this dialog)"</string>
+    <string name="return_text">Return</string>
 
 </resources>

@@ -26,7 +26,7 @@ public class Intro extends Activity implements OnClickListener {
 		buttonPlay.setOnClickListener(this); //set listener for the Play button
 		callTime++;
 		if(callTime > 1) {
-			buttonPlay.setText("Return"); //if user returns to this view, the text on the Play button should change to Return
+			buttonPlay.setText(R.string.return_text); //if user returns to this view, the text on the Play button should change to Return
 		}
 		
 		ImageView imageView = (ImageView) findViewById(R.id.org_pic);
