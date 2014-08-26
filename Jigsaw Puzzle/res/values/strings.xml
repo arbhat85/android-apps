@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Jigsaw Puzzle</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="original_string">Here\'s the Original Image!</string>
+    <string name="play_string">Play!</string>
+    <string name="exit_sting">Exit</string>
+    <string name="title_activity_play">Play</string>
+    <string name="see_again_string">See Original Image</string>
+    <string name="good_luck_string">Good Luck!</string>
+    <string name="finished_toast">Yay! You solved the puzzle!</string>
+    <string name="finished_text">Congratulations!</string>
+    <string name="play_again">Play Again</string>
+    <string name="content_description"></string>
+    <string name="instructions">Instructions</string>
+    <string name="instructions_title">Instructions</string>
+    <string name="instructions_message">"Arrange the pieces to recreate the original image\n\nContols:\n - Tap a piece to rotate it clockwise by 90 degrees\n - Long press and move a piece to drag it. Dragging a piece on another piece will swap the 2 pieces\n\nPieces that are incorrectly placed are indicated by a yellow border\n\nTap on 'See Original Image' to view the full image again\n\nThat's it! Good luck!\n\n(To close, tap anywhere oustide this dialog)"</string>
+    <string name="error_title">Oops\!</string>
+    <string name="error_message">"The app encountered an error and will not work as expected.\n\nPlease report this along with the error code in the next line.\nError code: %d\n\n(To close, tap anywhere oustide this dialog)"</string>
+
+</resources>
