@@ -1,7 +1,6 @@
 package com.puzzle.jigsaw;
 
 import java.util.ArrayList;
-import android.graphics.Point;
 
 /*
  * The InitDisplay class is used to discover the type of screen and calculate the optimal
@@ -14,35 +13,31 @@ import android.graphics.Point;
 public class InitDisplay {
 	private static int[] picDimensions = new int[2]; //size of the picture
 	private static int[] pieceDimensions = new int[2]; //size of each piece
-	private static int[] NUM; //number of rows and columns in the puzzle grid
-	
-	private final static int ROWS = 0, COLS = 1;
+
 	private final static int WIDTH = 0, HEIGHT = 1;
-	private final static int LEFT = 0, RIGHT = 1, TOP = 2, BOTTOM = 3;
 	
 	/* Dynamically calculate the locations and sizes of the pieces */
-	public static ArrayList<int[]> initialize(Point screenDimensions, int[] padding) {
-		NUM = Play.NUM;
+	public static ArrayList<int[]> initialize() {
 		
 		/* The ImageViews will be display as a NUM_ROWS x NUM_COLS grid */	
 		
-		/* Get the available width for the image */
-		picDimensions[WIDTH] = screenDimensions.x - ( padding[LEFT] + padding[RIGHT] );
-		picDimensions[HEIGHT] = screenDimensions.x - ( padding[TOP] + padding[BOTTOM] );
+		/* Get the available width for the photo */
+		picDimensions[WIDTH] = L.screenDimensions.x /*- ( L.rootLayoutPadding[LEFT] + L.rootLayoutPadding[RIGHT] )*/;
+		picDimensions[HEIGHT] = L.screenDimensions.x/* - ( L.rootLayoutPadding[TOP] + L.rootLayoutPadding[BOTTOM] )*/;
 		
 		/* Make sure the picWidth is divisible by NUM[ROWS] because
 		 * the ImageViews will be displayed as a NUM_ROWS x NUM_COLS grid */
-		while (picDimensions[WIDTH] % NUM[ROWS] != 0) {
+		while (picDimensions[WIDTH] % Inputs.getNumDimension() != 0) {
 			picDimensions[WIDTH]--;
 		}
 		/* Making an assumption that the height will be > width, which is (almost) always true
-		 * Also ensuring the image has square dimensions because each of the piece is going to be a square */
+		 * Also ensuring the photo has square dimensions because each of the piece is going to be a square */
 		picDimensions[HEIGHT] = picDimensions[WIDTH];
 		
 		/* Divide the piece width and height by the number of rows and columns respectively
 		 * to get each piece's width and height */
-		pieceDimensions[WIDTH] = picDimensions[WIDTH]/NUM[ROWS];
-		pieceDimensions[HEIGHT] = picDimensions[HEIGHT]/NUM[COLS];
+		pieceDimensions[WIDTH] = picDimensions[WIDTH]/Inputs.getNumDimension();
+		pieceDimensions[HEIGHT] = picDimensions[HEIGHT]/Inputs.getNumDimension();
 		
 		/* Map the locations of each piece and return */
 		return setImageViewLocations();
@@ -71,10 +66,10 @@ public class InitDisplay {
 		 * (0,3*height)---(width,3*height)---(2*width,3*height)---(3*width,3*height)
 		 */
 
-		ArrayList<int[]> imageViewLocations = new ArrayList<int[]>(NUM[ROWS]*NUM[COLS]); //array that will contain all the locations
+		ArrayList<int[]> imageViewLocations = new ArrayList<int[]>(Inputs.getNumPieces()); //array that will contain all the locations
 		int[] xy;
-		for (int i=0; i<NUM[COLS]; i++) {
-			for (int j=0; j<NUM[ROWS]; j++) {
+		for (int i=0; i<Inputs.getNumDimension(); i++) {
+			for (int j=0; j<Inputs.getNumDimension(); j++) {
 				xy = new int[2];
 				xy[0] = j*pieceDimensions[WIDTH];
 				xy[1] = i*pieceDimensions[HEIGHT];

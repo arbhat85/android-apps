@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background"
+    tools:context="com.puzzle.jigsaw.InstructionsActivity" >
+
+    <RelativeLayout
+        android:id="@+id/layout_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="@dimen/activity_horizontal_margin" >
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/ins_welcome"
+            android:textColor="#ff33b5e5"
+            android:textSize="22sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton_back"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/back"
+            android:textColor="#323232" />
+
+        <!-- Vertical Divider -->
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="@dimen/divider_thickness"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/imageButton_back"
+            android:background="#cccccc" />
+    </RelativeLayout>
+
+    <!-- Horizontalal Divider -->
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_thickness"
+        android:layout_below="@id/layout_relative"
+        android:background="#cccccc" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider2" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin" >
+
+                <TextView
+                    android:id="@+id/tv_intro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/tv_padding"
+                    android:text="@string/ins_intro"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_selectPhotoTitle"
+                    style="@android:attr/textAppearanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/tv_padding"
+                    android:text="@string/ins_selectPhotoTitle"
+                    android:textColor="#ff33b5e5"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_selectPhotoMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/tv_padding"
+                    android:text="@string/ins_selectPhotoMessage"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_selectNumTitle"
+                    style="@android:attr/textAppearanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/tv_padding"
+                    android:text="@string/ins_selectNumTitle"
+                    android:textColor="#ff33b5e5"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_selectNumMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/tv_padding"
+                    android:text="@string/ins_selectNumMessage"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_playTitle"
+                    style="@android:attr/textAppearanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/tv_padding"
+                    android:text="@string/ins_playTitle"
+                    android:textColor="#ff33b5e5"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/tv_playMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/tv_padding"
+                    android:text="@string/ins_playMessage"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_goodLuck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingBottom="@dimen/tv_padding"
+                    android:paddingTop="@dimen/tv_padding"
+                    android:text="@string/ins_goodLuck"
+                    android:textColor="#ff33b5e5"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e5e5e5"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/button_back"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@android:color/white"
+                    android:text="@string/button_back"
+                    android:textColor="#323232" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

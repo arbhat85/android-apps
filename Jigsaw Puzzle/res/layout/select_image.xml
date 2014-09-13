@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background" >
+    
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="android:attr/buttonBarStyle"
+        android:background="#e5e5e5" >
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_cancel"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            style="?android:attr/buttonBarButtonStyle"
+            android:textColor="#323232"
+            android:background="@android:color/white"
+            android:layout_margin="5dp" />
+
+        <Button
+            android:id="@+id/button_okay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_okay"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            style="?android:attr/buttonBarButtonStyle"
+            android:textColor="#323232"
+            android:background="@android:color/white"
+            android:layout_margin="5dp" />
+        
+    </LinearLayout>
+    
+    <!-- Horizontal Divider -->
+    <View
+        android:id="@+id/divider2"
+        android:background="#cccccc"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_thickness"
+        android:layout_below="@id/linearLayout1"
+        android:layout_marginTop="10dp" />
+    
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider2"
+        android:paddingTop="10dp" >
+        
+        <GridLayout
+        	android:id="@+id/layout_grid"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:columnCount="2"
+        	android:rowCount="10" >
+        </GridLayout>
+        
+    </ScrollView>
+
+</RelativeLayout>

@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.graphics.RectF;
 import android.util.Log;
 
 /* 
@@ -15,23 +13,20 @@ import android.util.Log;
  * It provides methods to retrieve and set relevant information
  */
 public class Piece {
-	private Bitmap borderedImage; //image associated with the Piece if it's placed incorrectly (indicated by a border)
-	private Bitmap correctImage; //image associated with the Piece is it's placed correctly (no border)
+	private Bitmap borderedPhoto; //photo associated with the Piece if it's placed incorrectly (indicated by a border)
+	private Bitmap correctPhoto; //photo associated with the Piece is it's placed correctly (no border)
 	private int currentPosition; //the current position of the piece
 	private int correctPosition; //the correct position of the piece
 	private int currentOrientation; //the current orientation of the piece
 	public final static int CORRECT_ORIENTATION = 0; //the correct orientation for all pieces is defined to be 0
 	static final Random rand = new Random(); //initialize random number generator used to randomly determine the orientation of the piece
-	private int NUM_TOTAL; //holds the value of rows*columns of the puzzle grid
 	
 	private static int occurrence = 0; //tracks the number of times the constructor was called
 	private static ArrayList<Integer> numbers = null; //array to choose the piece position randomly
 	
-	private final static int TOTAL = 2; //constant value used as an index into Play.NUM
 	private final static int UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3; //constants values used to indicate the orientation
 	
 	public Piece(Bitmap pic) {
-		NUM_TOTAL = Play.NUM[TOTAL];
 		
 		/* Store a randomized array of numbers from 0-NUM_TOTAL during the first call of the constructor
 		 * The currentPosition of the pieces in subsequent calls will be assigned from this array */
@@ -39,16 +34,16 @@ public class Piece {
 			generateRandomPositionsArray();	//generate the random array
 		}
 		
-		correctImage = pic; //set the correctImage to be the unbordered image
+		correctPhoto = pic; //set the correctPhoto to be the unbordered photo
 		
-		setBorderedImage(pic); //border the image and assign it to borderedImage
+		setBorderedPhoto(pic); //border the photo and assign it to borderedPhoto
 		
-		setCurrentOrientation(); //randomly generate an orientation and rotate the image accordingly
+		setCurrentOrientation(); //randomly generate an orientation and rotate the photo accordingly
 
 		//correct orientation for all Pieces is defined to be 0
 		
 		occurrence++;
-		if (occurrence == NUM_TOTAL) { //reset occurrence if the user taps on the Play Again button
+		if (occurrence == Inputs.getNumPieces()) { //reset occurrence if the user taps on the Play Again button
 			occurrence = 0;
 		}
 	}
@@ -56,35 +51,24 @@ public class Piece {
 	/* Create a randomized array of numbers from 0 - NUM_TOTAL-1
 	 * The currentPosition will be assigned from this array */
 	private void generateRandomPositionsArray() {
-		numbers = new ArrayList<Integer>(NUM_TOTAL);
-		for (int i=0; i<NUM_TOTAL; i++) { //generate the numbers array
+		numbers = new ArrayList<Integer>(Inputs.getNumPieces());
+		for (int i=0; i<Inputs.getNumPieces(); i++) { //generate the numbers array
 			numbers.add(i, i);
 		}
 		Collections.shuffle(numbers); //randomly shuffle the array
 	}
 	
-	/* Border the image and assign it to borderedImage */
-	private void setBorderedImage(Bitmap pic) {
-		int WIDTH = 0, COLOR = 1;
-		int[] border = new int[2]; //border[] specifies the width and color of the border
-		border[WIDTH] = 2;
-		border[COLOR] = Color.YELLOW;
-		
-		RectF borderRect = new RectF(border[WIDTH], border[WIDTH],
-				pic.getWidth()-border[WIDTH], pic.getHeight()-border[WIDTH]); //mark the image area within the bordered image
-		
-		borderedImage = Bitmap.createBitmap(pic); //create a new Bitmap that contains the original image
-		Canvas canvas = new Canvas(borderedImage); //create a new canvas to draw the bordered image
-		canvas.drawColor(border[COLOR]); //fill the entire canvas with the specified color
-		canvas.drawBitmap(pic, null, borderRect, null); //draw the original image into the area marked above
+	/* Border the photo and assign it to borderedPhoto */
+	private void setBorderedPhoto(Bitmap photo) {
+		borderedPhoto = L.drawBorder(photo, Color.YELLOW, 2);
 	}
 	
-	/* Randomly generate an orientation and rotate the image accordingly */
+	/* Randomly generate an orientation and rotate the photo accordingly */
 	private void setCurrentOrientation() {
 		currentPosition = numbers.get(occurrence); //set a number from the numbers array as the currentPosition
 		correctPosition = occurrence; //correctPosition is the same as the order in which the Pieces are created
 		currentOrientation = rand.nextInt(3); //randomly assign an orientation from 0-3 (0-up, 1-right, 2-down, 3-left)
-		rotateImage(currentOrientation); //rotate the image based on the currentOrientation
+		rotatePhoto(currentOrientation); //rotate the photo based on the currentOrientation
 	}
 	
 	/* Update the currentOrientation */
@@ -95,39 +79,39 @@ public class Piece {
 				currentOrientation = UP;
 			}
 		} else {
-			Log.i("rotateImage", "Invalid angle!");
+			Log.e("rotatePhoto", "Invalid angle!");
 		}
 	}
 	
-	/* Rotate the borderedImage */
-	private void updateImage(int angle) {
-		Bitmap img = borderedImage;
+	/* Rotate the borderedPhoto */
+	private void updatePhoto(int angle) {
+		Bitmap img = borderedPhoto;
 		Matrix matrix = new Matrix();
-		matrix.postRotate(angle); //rotate the image	
-		borderedImage = Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true); //set the image
+		matrix.postRotate(angle); //rotate the photo	
+		borderedPhoto = Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true); //set the photo
 	}
 	
 	/* 
 	 * PUBLIC METHODS
 	 */
 	
-	/* Return the borderedImage associated with the Piece */
-	public Bitmap getImage() {
-		return borderedImage;
+	/* Return the borderedPhoto associated with the Piece */
+	public Bitmap getPhoto() {
+		return borderedPhoto;
 	}
 	
-	/* Set the borderedImage associated with the Piece */
-	public void setImage(Bitmap img) {
-		borderedImage = img;
+	/* Set the borderedPhoto associated with the Piece */
+	public void setPhoto(Bitmap img) {
+		borderedPhoto = img;
 	}
 	
-	/* Return the correct image associated with the Piece */
-	public Bitmap getCorrectImage() {
-		return correctImage;
+	/* Return the correct photo associated with the Piece */
+	public Bitmap getCorrectPhoto() {
+		return correctPhoto;
 	}
 	
-	/* The correct image association is done by the Piece constructor and will not change afterward
-	 * Therefore, there is no setCorrectImage() method */
+	/* The correct photo association is done by the Piece constructor and will not change afterward
+	 * Therefore, there is no setCorrectPhoto() method */
 	
 	/* Return the current position of the Piece */
 	public int getPosition() {
@@ -156,12 +140,12 @@ public class Piece {
 	
 	/* Correct orientation for all Pieces is defined to be 0 */
 	
-	/* Rotate the image associated with the Piece
-	 * Note: caller has to assign the rotated image to the corresponding ImageView */
-	public void rotateImage(int orientationOrAngle) {
+	/* Rotate the photo associated with the Piece
+	 * Note: caller has to assign the rotated photo to the corresponding ImageView */
+	public void rotatePhoto(int orientationOrAngle) {
 		int angle = 0, orientation = -1;
 		
-		/* Parameter is either the orientation or the angle by which the image should be rotated. 
+		/* Parameter is either the orientation or the angle by which the photo should be rotated. 
 		 * Orientation ranges from 0 to 3, so if the parameter is more than 3, it's an angle */
 		if (orientationOrAngle > LEFT) {
 			angle = orientationOrAngle;
@@ -169,7 +153,7 @@ public class Piece {
 		} else {
 			orientation = orientationOrAngle;
 			
-			/* Get the angle by which the image needs to be rotated based on the orientation */
+			/* Get the angle by which the photo needs to be rotated based on the orientation */
 			switch(orientation) {
 			case UP: //Do not rotate. Up orientation
 				return;
@@ -185,7 +169,7 @@ public class Piece {
 			}
 		}
 		
-		updateImage(angle); //rotate the image (caller has to assign the image to ImageView)
+		updatePhoto(angle); //rotate the photo (caller has to assign the photo to ImageView)
 	}
 	
 }

@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="com.puzzle.jigsaw.PreviewActivity" >
+    
+    <LinearLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e5e5e5"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" >
+                
+        <Button
+        	android:id="@+id/button_back"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="@string/button_back"
+        	style="?android:attr/buttonBarButtonStyle"
+        	android:textColor="#323232"
+        	android:background="@android:color/white"
+            android:layout_margin="5dp" />
+                
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/imageView_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/layout_container"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ayers_rock"
+        android:contentDescription="@string/content_description" />
+
+</RelativeLayout>
